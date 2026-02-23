@@ -31,10 +31,9 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
-    TrainingArguments,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-from trl import SFTTrainer
+from trl import SFTTrainer, SFTConfig
 
 
 # ============================================================
@@ -182,31 +181,31 @@ def train(
     model = apply_lora(model, r=lora_r, alpha=lora_alpha)
 
     # 3. 训练参数
-    training_args = TrainingArguments(
+    training_args = SFTConfig(
         output_dir=output_dir,
         num_train_epochs=epochs,
         per_device_train_batch_size=batch_size,
         gradient_accumulation_steps=grad_accum,
         learning_rate=lr,
-        fp16=True,
+        bf16=True,
         logging_steps=10,
         save_strategy="epoch",
         save_total_limit=3,
-        warmup_ratio=0.05,
+        warmup_steps=int(0.05 * epochs * len(dataset) / (batch_size * grad_accum)),
         lr_scheduler_type="cosine",
         report_to="none",
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
         max_grad_norm=0.3,
+        max_length=max_seq_len,
     )
 
     # 4. 训练器
     trainer = SFTTrainer(
         model=model,
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         train_dataset=dataset,
         args=training_args,
-        max_seq_length=max_seq_len,
     )
 
     # 5. 开跑

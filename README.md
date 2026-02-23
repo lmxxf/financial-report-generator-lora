@@ -32,32 +32,39 @@
 
 ## 环境
 
-DGX Spark (128GB) + magical_bhabha docker 容器。
+DGX Spark (128GB) + docker 容器（nvcr.io/nvidia/pytorch:25.11-py3）。
 
 ```bash
-docker exec -it magical_bhabha bash
-pip install peft bitsandbytes trl  # 其它依赖容器里已有
+# 创建容器（映射项目和模型目录）
+docker run -it --gpus all --name lora-train \
+  -v /home/lmxxf/work/financial-report-generator-lora:/workspace/lora \
+  -v /home/lmxxf/work/models:/workspace/models \
+  nvcr.io/nvidia/pytorch:25.11-py3 bash
+
+# 容器内安装依赖
+pip install peft bitsandbytes trl
 ```
 
 | 库 | 作用 |
 |---|---|
 | peft | LoRA 实现，把全量微调变成只训几百万参数 |
 | bitsandbytes | 8bit 量化加载，14B 模型从 28GB 压到 ~15GB |
-| trl | HuggingFace 训练器，SFTTrainer 处理 chat 格式对齐 |
+| trl | HuggingFace 训练器，SFTTrainer + SFTConfig 处理 chat 格式对齐 |
 
 ## 训练
 
 基座模型：Qwen3-14B，8bit 量化加载（QLoRA）。
 
 ```bash
-# 下载模型（中国镜像）
+# 下载模型（中国镜像，在宿主机执行）
 HF_ENDPOINT=https://hf-mirror.com huggingface-cli download Qwen/Qwen3-14B --local-dir /home/lmxxf/work/models/Qwen3-14B
 
-# 用 50 条 demo 快速验证流程
-python train_lora.py train --data sample_data.jsonl --epochs 3
+# 容器内训练（用 50 条 demo 快速验证流程）
+cd /workspace/lora
+python train_lora.py train --model /workspace/models/Qwen3-14B --data sample_data.jsonl --epochs 3
 
-# 用完整 500 条正式训练
-python train_lora.py train --data data/ --epochs 5
+# 用完整 460 条正式训练
+python train_lora.py train --model /workspace/models/Qwen3-14B --data data/ --epochs 5
 ```
 
 训练参数（默认值）：
@@ -65,12 +72,21 @@ python train_lora.py train --data data/ --epochs 5
 | 参数 | 值 | 说明 |
 |---|---|---|
 | LoRA r | 16 | 低秩矩阵维度 |
-| LoRA alpha | 32 | 缩放系数 |
+| LoRA alpha | 32 | 缩放系数（alpha/r = 2，标准配比） |
+| LoRA dropout | 0.05 | 防过拟合 |
+| LoRA target | q/k/v/o/gate/up/down_proj | 全注意力层 + MLP，共 7 个模块 |
+| trainable params | 64M / 14.8B (0.43%) | 只训练 LoRA 参数 |
 | batch size | 2 × 8 (grad accum) = 16 | 有效批大小 |
-| learning rate | 2e-4 | 余弦衰减 |
+| learning rate | 2e-4 | 余弦衰减（cosine） |
+| warmup | 5% of total steps | 预热步数 |
+| max grad norm | 0.3 | 梯度裁剪 |
+| optimizer | paged_adamw_8bit | 8bit 优化器，省显存 |
+| 混合精度 | bf16 | Blackwell 原生支持，比 fp16 数值更稳定 |
+| gradient checkpointing | 开 | 用计算换显存 |
 | max seq len | 2048 | 最大序列长度 |
-| 量化 | 8bit (bitsandbytes) | QLoRA |
-| 显存估算 | ~20GB | 14B 8bit + LoRA |
+| 量化 | 8bit (bitsandbytes) | QLoRA，int8_threshold=6.0 |
+| 显存估算 | ~20GB | 14B 8bit + LoRA + 梯度 |
+| save strategy | 每个 epoch | 保留最近 3 个 checkpoint |
 
 ## 推理
 
