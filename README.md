@@ -51,6 +51,14 @@ pip install peft bitsandbytes trl
 | bitsandbytes | 8bit 量化加载，14B 模型从 28GB 压到 ~15GB |
 | trl | HuggingFace 训练器，SFTTrainer + SFTConfig 处理 chat 格式对齐 |
 
+## 为什么需要重新训练
+
+原方案（260 条数据微调 Qwen3-14B）完美匹配仅 29%，详细诊断见 [training_data_strategy.md](training_data_strategy.md)，核心问题：
+
+1. **260 条数据全部恰好 2 个指标** —— prompt 写死"数量严格控制：2个"，模型学会了凑数而不是判断
+2. **158 条"不一致"中 45 条是字符串匹配误杀** —— "投资活动现金流" vs "投资活动净现金流"（相似度 0.93）被判错
+3. **DeepSeek 的标注本身有问题** —— 它也在硬凑第二个指标
+
 ## 训练
 
 基座模型：Qwen3-14B，8bit 量化加载（QLoRA）。
