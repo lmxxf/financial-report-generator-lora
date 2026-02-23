@@ -25,9 +25,11 @@
 ├── training_data_strategy.md  # 训练数据策略文档
 ├── sample_data.jsonl          # 50 条 demo 数据
 ├── test_cases.jsonl           # 20 条测试用例（6 个场景）
-├── data/                      # 完整训练集（460 条）
+├── test_cases_results_v1.json  # v1 评测详细结果（460条/5epochs）
+├── test_cases_results_v2.json  # v2 评测详细结果（540条/5epochs）
+├── data/                      # 完整训练集（540 条，v2）
 │   ├── type_a.jsonl           # 标准正样本（270条）
-│   ├── type_b.jsonl           # 边界负样本（72条）—— 教"什么不该提"
+│   ├── type_b.jsonl           # 边界负样本（152条，v2: 72→152）—— 教"什么不该提"
 │   ├── type_c.jsonl           # 数量变化样本（72条）—— 打破"永远提2个"
 │   └── type_d.jsonl           # 混合类型专项（46条）—— 练 financial/business 分类
 └── output/                    # 训练输出（.gitignore）
@@ -74,7 +76,7 @@ HF_ENDPOINT=https://hf-mirror.com huggingface-cli download Qwen/Qwen3-14B --loca
 cd /workspace/lora
 python train_lora.py train --model /workspace/models/Qwen3-14B --data sample_data.jsonl --epochs 3
 
-# 用完整 460 条正式训练
+# 用完整 540 条正式训练（v2）
 python train_lora.py train --model /workspace/models/Qwen3-14B --data data/ --epochs 5
 ```
 
@@ -134,9 +136,24 @@ python eval_script.py --pred predictions.jsonl --gold gold.jsonl --detail
 python batch_infer.py --model /workspace/models/Qwen3-14B --lora output/final --test test_cases.jsonl
 ```
 
-## 当前效果（v1：460 条 / 5 epochs）
+## 评测结果
 
-20 条测试用例，完美匹配 7/20（35%）：
+### v2：540 条 / 5 epochs（Type B 72→152）
+
+20 条测试，完美匹配 9/20（45%），宽松匹配 11/20（55%）：
+
+| 场景 | 通过 | 说明 |
+|---|---|---|
+| 单指标（不凑数） | 4/5 | 1 条仍多提（半导体，期望1提了3） |
+| 多指标（2-3 个） | 1/5 | 新材料完美；其他数量或指标名偏差 |
+| 边界判断（多数字少核心） | 0/3 | 全部多提——该提 1 个提了 3 个，**未改善** |
+| financial vs business 分类 | 1/3 | 连锁餐饮完美；物业/游戏指标名偏差 |
+| 空输出（背景段落） | 2/2 | 完美 |
+| 混合类型 | 1/2 | 工业软件多提了经调整净利率 |
+
+### v1：460 条 / 5 epochs（对照）
+
+20 条测试，完美匹配 7/20（35%）：
 
 | 场景 | 通过 | 说明 |
 |---|---|---|
@@ -147,14 +164,16 @@ python batch_infer.py --model /workspace/models/Qwen3-14B --lora output/final --
 | 空输出（背景段落） | 2/2 | 完美 |
 | 混合类型 | 1/2 | 1 条多提了净利率 |
 
-**已验证的能力：**
-- JSON 格式合法率 20/20（100%）
-- financial/business 分类基本准确
-- 空输出（纯背景段落）判断完美
-- analysis 思维链有逻辑
+### v1 → v2 对比
 
-**主要问题：倾向于多提指标。** 边界判断场景期望 1 个核心指标但模型提了 2-3 个，说明 460 条数据（其中边界负样本仅 72 条）不足以让模型学会"克制"。
+| 指标 | v1 (460条) | v2 (540条) | 变化 |
+|---|---|---|---|
+| 完美匹配 ✅ | 7/20 (35%) | 9/20 (45%) | +10% |
+| 宽松匹配 ✅🟡 | 9/20 (45%) | 11/20 (55%) | +10% |
+| 边界判断 | 0/3 | 0/3 | **未改善** |
+| JSON 合法率 | 20/20 | 20/20 | 保持 |
+| 空输出判断 | 2/2 | 2/2 | 保持 |
 
-**下一步改进方向：**
-- 增加 Type B（边界负样本）数据量，从 72 条扩充到 150+ 条
-- 或增加训练轮次（epochs 5 → 8-10）
+**结论：** Type B 扩充（72→152）在分类和多指标场景带来了改善（+10%），但**边界判断（多数字少核心）完全没有改善**——该提 1 个还是提了 3 个。这说明 14B 模型的语义理解深度不足以判断"哪个指标是作者真正在分析的"。加数据解决不了模型能力天花板问题。
+
+**下一步：** 换更大的基座模型（Qwen3-32B），测试规模提升能否突破边界判断的瓶颈。
