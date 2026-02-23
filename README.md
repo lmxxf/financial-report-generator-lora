@@ -20,14 +20,17 @@
 
 ```
 ├── train_lora.py              # QLoRA 训练 + 推理脚本
+├── batch_infer.py             # 批量推理 + 简易评测
 ├── eval_script.py             # 三层评估脚本（语义匹配）
 ├── training_data_strategy.md  # 训练数据策略文档
 ├── sample_data.jsonl          # 50 条 demo 数据
-└── data/                      # 完整训练集（~500条）
-    ├── type_a.jsonl           # 标准正样本（270条）
-    ├── type_b.jsonl           # 边界负样本（72条）—— 教"什么不该提"
-    ├── type_c.jsonl           # 数量变化样本（72条）—— 打破"永远提2个"
-    └── type_d.jsonl           # 混合类型专项（46条）—— 练 financial/business 分类
+├── test_cases.jsonl           # 20 条测试用例（6 个场景）
+├── data/                      # 完整训练集（460 条）
+│   ├── type_a.jsonl           # 标准正样本（270条）
+│   ├── type_b.jsonl           # 边界负样本（72条）—— 教"什么不该提"
+│   ├── type_c.jsonl           # 数量变化样本（72条）—— 打破"永远提2个"
+│   └── type_d.jsonl           # 混合类型专项（46条）—— 练 financial/business 分类
+└── output/                    # 训练输出（.gitignore）
 ```
 
 ## 环境
@@ -124,3 +127,34 @@ python eval_script.py --pred predictions.jsonl --gold gold.jsonl --detail
 1. **核心命中率**（Recall）—— 标注里的核心指标，模型提到了几个
 2. **精确率/召回率/F1** —— 多提了什么、漏了什么
 3. **类型准确率** —— financial/business 分对了吗
+
+批量评测（20 条测试用例，覆盖 6 个场景）：
+
+```bash
+python batch_infer.py --model /workspace/models/Qwen3-14B --lora output/final --test test_cases.jsonl
+```
+
+## 当前效果（v1：460 条 / 5 epochs）
+
+20 条测试用例，完美匹配 7/20（35%）：
+
+| 场景 | 通过 | 说明 |
+|---|---|---|
+| 单指标（不凑数） | 4/5 | 1 条多提了市占率 |
+| 多指标（2-3 个） | 0/5 | 指标名模糊匹配其实大部分对了，但数量偏差 |
+| 边界判断（多数字少核心） | 0/3 | 全部多提——该提 1 个提了 2-3 个 |
+| financial vs business 分类 | 0/3 | 类型分对了，但数量不匹配 |
+| 空输出（背景段落） | 2/2 | 完美 |
+| 混合类型 | 1/2 | 1 条多提了净利率 |
+
+**已验证的能力：**
+- JSON 格式合法率 20/20（100%）
+- financial/business 分类基本准确
+- 空输出（纯背景段落）判断完美
+- analysis 思维链有逻辑
+
+**主要问题：倾向于多提指标。** 边界判断场景期望 1 个核心指标但模型提了 2-3 个，说明 460 条数据（其中边界负样本仅 72 条）不足以让模型学会"克制"。
+
+**下一步改进方向：**
+- 增加 Type B（边界负样本）数据量，从 72 条扩充到 150+ 条
+- 或增加训练轮次（epochs 5 → 8-10）
