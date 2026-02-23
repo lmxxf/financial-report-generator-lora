@@ -96,6 +96,8 @@ python train_lora.py train --model /workspace/models/Qwen3-14B --data data/ --ep
 | 显存估算 | ~20GB | 14B 8bit + LoRA + 梯度 |
 | save strategy | 每个 epoch | 保留最近 3 个 checkpoint |
 
+训练好的 LoRA 权重：[lmxxf/financial-report-lora-qwen3-14b](https://huggingface.co/lmxxf/financial-report-lora-qwen3-14b)
+
 ## 推理
 
 ```bash
