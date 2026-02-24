@@ -9,7 +9,7 @@
     "exact_hits": 1,
     "fuzzy_hits": 1,
     "status": "🟡",
-    "pred_raw": "{\n  \"analysis\": \"段落分析国产替代验证通过率的质变拐点。验证通过率78%提升12个百分点是段落核心——这是国产设备从实验室到量产的关键指标，12个百分点的提升意味着大量设备型号通过客户验证并进入采购名单。刻蚀设备市占率22%提升6个百分点是验证通过率提升的下游结果。新签订单95亿元和在手订单210亿元是验证通过率提升带来的订单增长。营收增速34.7%是订单增长的财务结果。验证通过率是国产替代从量变到质变的拐点。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"国产替代验证通过率\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"78%提升12个百分点是国产设备从实验室到量产的关键拐点\"\n    },\n    {\n      \"metric_name\": \"刻蚀设备国内市占率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"22%提升6个百分点是验证通过率提升的下游结果\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析国产替代验证通过率和市占率是核心分析指标。验证通过率78%是国产替代从量变到质变的关键拐点，市占率22%反映国产设备在28nm及以上制程的渗透。新签订单和在手订单是业务规模的支撑，营收增速是结果。验证通过率提升12个百分点是核心驱动。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"国产替代验证通过率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.95,\n      \"reason\": \"78%的验证通过率是国产替代从量变到质变的关键拐点，提升12个百分点反映设备型号进入客户量产采购名单的实质性突破\"\n    },\n    {\n      \"metric_name\": \"刻蚀设备市占率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"22%的市占率反映国产设备在28nm及以上制程的渗透，提升6个百分点显示国产替代的持续深化\"\n    }\n  ]\n}"
   },
   {
     "index": 2,
@@ -17,11 +17,11 @@
     "title": "创新药研发跟踪",
     "valid_json": true,
     "gold_count": 1,
-    "pred_count": 2,
+    "pred_count": 4,
     "exact_hits": 1,
     "fuzzy_hits": 1,
-    "status": "🟡",
-    "pred_raw": "{\n  \"analysis\": \"本段有2个指标被深度分析。段落从全球销售额、市场份额和研发管线三个维度分析了泽布替尼的商业化进展。全球销售额18.2亿美元是产品表现的核心度量，市场份额31%是竞争地位的度量。研发管线16个III期是研发储备的度量，经营亏损1.2亿美元是财务结果。美国市场贡献12.8亿美元是区域收入的补充说明。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"泽布替尼全球销售额\",\n      \"metric_type\": \"business\",\n      \"score\": 0.94,\n      \"reason\": \"18.2亿美元增长62%且市场份额31%的品类第一，是创新药商业化的核心度量\"\n    },\n    {\n      \"metric_name\": \"研发管线III期数量\",\n      \"metric_type\": \"business\",\n      \"score\": 0.88,\n      \"reason\": \"16个III期是研发储备的度量，配合肿瘤免疫组合疗法数据预期，反映研发深度\"\n    }\n  ]\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析泽布替尼的全球销售增长和市场地位。核心指标是全球销售额18.2亿美元（同比增长62%）和美国市场贡献12.8亿美元，这两个指标共同构成全球销售增长的核心数据。市场占有率31%是BTK抑制剂品类的市场地位指标。研发管线16个III期分子是研发进展的核心指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"泽布替尼全球销售额\",\n      \"metric_type\": \"business\",\n      \"value\": \"18.2亿美元\",\n      \"unit\": \"美元\",\n      \"analysis_depth\": \"deep\",\n      \"reason\": \"全球销售额是创新药商业化的核心指标，62%的增速反映市场渗透和产品竞争力\"\n    },\n    {\n      \"metric_name\": \"泽布替尼美国市场贡献\",\n      \"metric_type\": \"business\",\n      \"value\": \"12.8亿美元\",\n      \"unit\": \"美元\",\n      \"analysis_depth\": \"deep\",\n      \"reason\": \"美国市场贡献70%的全球销售额，反映产品在美国市场的渗透率和定价能力\"\n    },\n    {\n      \"metric_name\": \"泽布替尼BTK抑制剂市场份额\",\n      \"metric_type\": \"business\",\n      \"value\": \"31%\",\n      \"unit\": \"%\",\n      \"analysis_depth\": \"deep\",\n      \"reason\": \"超越伊布替尼成为品类第一，反映产品竞争力和市场认可度\"\n    },\n    {\n      \"metric_name\": \"研发管线III期分子数量\",\n      \"metric_type\": \"research\",\n      \"value\": \"16个\",\n      \"unit\": \"个\",\n      \"analysis_depth\": \"deep\",\n      \"reason\": \"16个III期分子是研发管线深度的核心指标，反映未来产品梯队\"\n    }\n  ]\n}"
   },
   {
     "index": 3,
@@ -29,11 +29,11 @@
     "title": "物流快递行业",
     "valid_json": true,
     "gold_count": 1,
-    "pred_count": 1,
+    "pred_count": 2,
     "exact_hits": 1,
     "fuzzy_hits": 1,
-    "status": "✅",
-    "pred_raw": "{\n  \"analysis\": \"本段中'快递业务量'和'市场份额'是行业地位的描述性数据。时效件和经济件的单票收入是业务结构的分类说明。段落核心是单票成本的持续改善及其驱动因素。中转自动化率和干线满载率是成本下降的内部驱动因素，但段落中它们是成本改善的解释变量，不独立构成分析对象。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"单票成本\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"14.32元同比下降7.8%且连续六个季度改善，是成本效率的核心度量\"\n    }\n  ]\n}"
+    "status": "🟡",
+    "pred_raw": "{\n  \"analysis\": \"段落分析单票成本和业务量两个核心指标。单票成本14.32元是核心分析对象，下降7.8%是核心变化。成本下降的三个驱动因素是中转自动化率提升、干线满载率提升和末端管理。业务量增长13.2%是规模扩张的指标。时效件和经济件的单票收入是产品结构的指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"单票成本\",\n      \"metric_type\": \"cost\",\n      \"score\": 1.0,\n      \"reason\": \"14.32元是核心分析对象，下降7.8%是核心变化\"\n    },\n    {\n      \"metric_name\": \"快递业务量\",\n      \"metric_type\": \"volume\",\n      \"score\": 0.8,\n      \"reason\": \"增长13.2%是规模扩张的指标\"\n    }\n  ]\n}"
   },
   {
     "index": 4,
@@ -41,11 +41,11 @@
     "title": "云计算行业",
     "valid_json": true,
     "gold_count": 1,
-    "pred_count": 3,
+    "pred_count": 1,
     "exact_hits": 1,
     "fuzzy_hits": 1,
-    "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"本段核心分析对象是收入留存率（NRR）。段落从112%的NRR回升切入，解释了大模型推理需求和GPU云服务增购的驱动因素。云服务收入49.2亿元和27%增速是NRR改善的业务基础。亏损率8.3%是盈利改善的信号。客户数量6,800家是规模指标。段落逻辑是'NRR改善→业务驱动因素→盈利改善'。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"收入留存率（NRR）\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"112%的显著回升是段落核心分析对象，有大模型推理需求和GPU云服务增购的驱动因素分析\"\n    },\n    {\n      \"metric_name\": \"云服务收入增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"27%的增速是NRR改善的业务基础，但段落分析重点在NRR本身\"\n    },\n    {\n      \"metric_name\": \"亏损率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.8,\n      \"reason\": \"8.3%的收窄是盈利改善的信号，但段落分析深度有限\"\n    }\n  ]\n}"
+    "status": "✅",
+    "pred_raw": "{\n  \"analysis\": \"段落分析收入留存率（NRR）是核心指标。NRR从98%回升至112%是段落的主旨，说明客户增购而非流失。大模型推理需求驱动GPU云服务增购是NRR回升的主因，公有云大客户用量自然增长是次要原因。云服务收入49.2亿元是NRR改善的财务结果，亏损率收窄是财务改善的副产品。客户数量6,800家是客户基础的规模指标，但不是段落的核心分析对象。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"收入留存率（NRR）\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"NRR从98%回升至112%是段落的主旨，说明客户增购而非流失。大模型推理需求驱动GPU云服务增购是NRR回升的主因，公有云大客户用量自然增长是次要原因。\"\n    }\n  ]\n}"
   },
   {
     "index": 5,
@@ -53,11 +53,11 @@
     "title": "光伏产业链",
     "valid_json": true,
     "gold_count": 1,
-    "pred_count": 1,
+    "pred_count": 3,
     "exact_hits": 1,
     "fuzzy_hits": 1,
-    "status": "✅",
-    "pred_raw": "{\n  \"analysis\": \"段落分析光伏硅片龙头的非硅成本。非硅成本0.058元/W同比下降23%是段落核心——这是硅片制造环节的直接成本度量，成本下降直接提升毛利率。钨丝金刚线细线化（线径从38微米降至33微米）和大尺寸坩埚寿命延长是成本下降的技术路径。出货量58GW和市占率28%是规模数据。N型占比85%是产品结构。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"硅片非硅成本\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"0.058元/W同比下降23%是硅片制造环节的核心成本度量\"\n    }\n  ]\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析硅片成本下降的驱动因素。非硅成本0.058元/W是核心指标，但段落重点分析的是成本下降的驱动因素——钨丝金刚线细线化和大尺寸坩埚寿命。硅片出货量和市占率是业务规模指标，N型占比是产品结构指标。段落核心是成本下降的技术路径。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"硅片非硅成本\",\n      \"metric_type\": \"cost\",\n      \"score\": 0.95,\n      \"reason\": \"段落核心分析成本下降的技术路径，非硅成本0.058元/W是核心指标\"\n    },\n    {\n      \"metric_name\": \"钨丝金刚线线径\",\n      \"metric_type\": \"technology\",\n      \"score\": 0.9,\n      \"reason\": \"细线化是成本下降的核心技术路径，线径从38微米降至33微米\"\n    },\n    {\n      \"metric_name\": \"大尺寸坩埚寿命\",\n      \"metric_type\": \"technology\",\n      \"score\": 0.85,\n      \"reason\": \"寿命延长至600小时以上是成本下降的另一技术路径\"\n    }\n  ]\n}"
   },
   {
     "index": 6,
@@ -65,11 +65,11 @@
     "title": "新能源汽车行业",
     "valid_json": true,
     "gold_count": 3,
-    "pred_count": 3,
+    "pred_count": 4,
     "exact_hits": 2,
     "fuzzy_hits": 2,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"段落分析新能源汽车企业的交付增长、毛利率改善和智能驾驶进展。整车毛利率21.6%提升1.4个百分点是盈利改善的核心——新能源汽车从价格战中走出后毛利率修复。单车毛利5.8万元是毛利率的具象化。NOA城区通行率93%是智能驾驶技术的领先度。市占率18.3%是高端市场的地位。研发费用占比9.2%是技术投入强度。现金储备1,024亿元是财务安全垫。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"整车毛利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"21.6%提升1.4个百分点是盈利改善的核心\"\n    },\n    {\n      \"metric_name\": \"NOA城区通行率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.9,\n      \"reason\": \"93%是智能驾驶技术领先度的直接度量\"\n    },\n    {\n      \"metric_name\": \"单车毛利\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.85,\n      \"reason\": \"5.8万元是毛利率的具象化\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析新能源汽车行业的核心财务和运营指标。交付量和市占率是行业竞争格局的核心指标，单车毛利和整车毛利率反映盈利能力。研发费用和研发费用率是智能驾驶技术投入的关键指标。NOA城区通行率和开城数量是智能驾驶技术落地的进度指标。现金储备是财务健康度的指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"交付量\",\n      \"metric_type\": \"business\",\n      \"score\": 0.98,\n      \"reason\": \"30万元以上SUV市场市占率18.3%是行业竞争格局的核心指标\"\n    },\n    {\n      \"metric_name\": \"单车毛利\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.95,\n      \"reason\": \"5.8万元是新能源汽车盈利模式的核心指标\"\n    },\n    {\n      \"metric_name\": \"NOA城区通行率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.92,\n      \"reason\": \"93%是智能驾驶技术落地的进度指标\"\n    },\n    {\n      \"metric_name\": \"研发费用\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.88,\n      \"reason\": \"62亿元是智能驾驶技术投入的关键指标\"\n    }\n  ]\n}"
   },
   {
     "index": 7,
@@ -77,11 +77,11 @@
     "title": "医疗器械分析",
     "valid_json": true,
     "gold_count": 3,
-    "pred_count": 2,
+    "pred_count": 3,
     "exact_hits": 1,
     "fuzzy_hits": 1,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"本段中'国内高端医院覆盖率49%'是业务拓展进度的描述，'公司整体营收198亿元'是段落主题句中的总量数据。核心分析对象是海外收入占比和IVD业务毛利率。段落围绕海外拓展和IVD业务升级展开分析。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"海外收入占比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.94,\n      \"reason\": \"44.8%和+3.2pct是全球化战略的核心度量，段落分析重点\"\n    },\n    {\n      \"metric_name\": \"IVD业务毛利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.92,\n      \"reason\": \"67.2%受益于封闭式试剂占比提升，是IVD业务升级的盈利验证\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析海外收入占比、体外诊断业务、国内高端医院覆盖率三个指标。海外收入占比44.8%是海外业务的结构性指标，发展中国家增速38%是海外增长的驱动力。体外诊断业务增长24.3%是核心业务增速，封闭式试剂占比从61%提升至68%是产品结构优化，毛利率67.2%是盈利能力。国内高端医院覆盖率从42%提升至49%是市场渗透率。整体营收198亿元是规模指标，增速18.6%是增长速度。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"海外收入占比\",\n      \"metric_type\": \"structural\",\n      \"value\": \"44.8%\",\n      \"unit\": \"%\",\n      \"analysis_depth\": \"deep\"\n    },\n    {\n      \"metric_name\": \"体外诊断业务增速\",\n      \"metric_type\": \"business\",\n      \"value\": \"24.3%\",\n      \"unit\": \"%\",\n      \"analysis_depth\": \"deep\"\n    },\n    {\n      \"metric_name\": \"国内高端医院覆盖率\",\n      \"metric_type\": \"market\",\n      \"value\": \"49%\",\n      \"unit\": \"%\",\n      \"analysis_depth\": \"deep\"\n    }\n  ]\n}"
   },
   {
     "index": 8,
@@ -89,11 +89,11 @@
     "title": "白酒行业深度",
     "valid_json": true,
     "gold_count": 2,
-    "pred_count": 2,
+    "pred_count": 4,
     "exact_hits": 1,
-    "fuzzy_hits": 1,
+    "fuzzy_hits": 2,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"本段有2个指标被深度分析。段落从全国化和产品结构两个维度分析了白酒企业的成长性。省外收入占比73.2%和增速28%是两个独立的分析维度——全国化和产品高端化。批价和库存是渠道状态的描述。经销商数量是渠道网络的规模。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"省外收入占比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.94,\n      \"reason\": \"73.2%和+4.1pct的全国化进度是白酒企业成长性的核心度量\"\n    },\n    {\n      \"metric_name\": \"青花系列增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.92,\n      \"reason\": \"28%的高端产品增速和45%的收入占比反映产品结构升级\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析山西汾酒的全国化和高端化。省外收入占比提升4.1个百分点至73.2%是全国化的核心指标。青花系列收入增速28%和占比45%是高端化的核心指标。批价430-450元和880元是渠道定价力的核心指标。经销商数量净增312家是渠道扩张的核心指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"省外收入占比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.95,\n      \"reason\": \"提升4.1个百分点至73.2%是全国化的核心指标\"\n    },\n    {\n      \"metric_name\": \"青花系列收入增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.92,\n      \"reason\": \"28%增速和45%占比是高端化的核心指标\"\n    },\n    {\n      \"metric_name\": \"青花20批价\",\n      \"metric_type\": \"business\",\n      \"score\": 0.88,\n      \"reason\": \"430-450元是渠道定价力的核心指标\"\n    },\n    {\n      \"metric_name\": \"经销商数量\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"净增312家是渠道扩张的核心指标\"\n    }\n  ]\n}"
   },
   {
     "index": 9,
@@ -101,11 +101,11 @@
     "title": "银行业经营分析",
     "valid_json": true,
     "gold_count": 3,
-    "pred_count": 4,
+    "pred_count": 5,
     "exact_hits": 3,
     "fuzzy_hits": 3,
-    "status": "🟡",
-    "pred_raw": "{\n  \"analysis\": \"本段同时包含business和financial两类指标。净息差是财务指标因为它直接反映银行的利息收入减去利息支出的差额，是利润表的核心科目；零售AUM是业务指标因为它衡量的是银行管理的客户资产规模，属于业务经营层面的客户资金管理规模。不良贷款率是财务指标因为它反映的是银行的资产质量，直接影响拨备计提和利润；私人银行客户AUM增速是业务指标因为它衡量的是高净值客户资产规模的业务增长。拨备覆盖率是财务指标因为它反映的是拨备与不良贷款的比率，是财务稳健性的度量。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"净息差\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"1.98%收窄8个基点是利润表核心科目，直接决定银行息差收入\"\n    },\n    {\n      \"metric_name\": \"零售AUM\",\n      \"metric_type\": \"business\",\n      \"score\": 0.9,\n      \"reason\": \"14.8万亿元增长11.2%是客户资金管理规模的业务指标\"\n    },\n    {\n      \"metric_name\": \"不良贷款率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.9,\n      \"reason\": \"0.93%和412%拨备覆盖率是资产质量的财务指标\"\n    },\n    {\n      \"metric_name\": \"私人银行客户AUM增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"16.5%是高净值客户业务增长的业务指标\"\n    }\n  ]\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析零售AUM和私人银行客户AUM增速是零售业务扩张的核心指标。信用卡不良率下降反映消费信贷资产质量修复。净息差收窄反映利率市场化压力。不良贷款率和拨备覆盖率是资产质量的核心指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"零售AUM\",\n      \"metric_type\": \"business\",\n      \"score\": 0.95,\n      \"reason\": \"14.8万亿元的零售AUM是零售业务扩张的核心指标\"\n    },\n    {\n      \"metric_name\": \"私人银行客户AUM增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.92,\n      \"reason\": \"16.5%的私人银行客户AUM增速反映高净值客户拓展\"\n    },\n    {\n      \"metric_name\": \"信用卡不良率\",\n      \"metric_type\": \"risk\",\n      \"score\": 0.88,\n      \"reason\": \"信用卡不良率从1.72%降至1.45%反映消费信贷资产质量修复\"\n    },\n    {\n      \"metric_name\": \"净息差\",\n      \"metric_type\": \"profitability\",\n      \"score\": 0.85,\n      \"reason\": \"1.98%的净息差同比收窄8个基点反映利率市场化压力\"\n    },\n    {\n      \"metric_name\": \"不良贷款率\",\n      \"metric_type\": \"risk\",\n      \"score\": 0.82,\n      \"reason\": \"0.93%的不良贷款率是资产质量的核心指标\"\n    }\n  ]\n}"
   },
   {
     "index": 10,
@@ -113,11 +113,11 @@
     "title": "新材料行业",
     "valid_json": true,
     "gold_count": 3,
-    "pred_count": 2,
-    "exact_hits": 1,
-    "fuzzy_hits": 1,
+    "pred_count": 5,
+    "exact_hits": 2,
+    "fuzzy_hits": 3,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"段落分析生物发酵企业的产能利用率和产品得率。丙氨酸产能利用率92%提升8个百分点是段落核心——产能利用率直接决定产能释放效率和收入规模。生物发酵得率从92%提升至95%是丙氨酸毛利率提升2.7个百分点的核心驱动——得率提升意味着单位成本下降。合成生物学平台新品种1,3-丙二醇产能爬坡至65%是未来增长的前瞻信号。海外客户占比56%是市场结构的常规描述。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"丙氨酸产能利用率\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"92%提升8个百分点是生物发酵企业的核心产能效率指标\"\n    },\n    {\n      \"metric_name\": \"生物发酵得率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.9,\n      \"reason\": \"从92%提升至95%是丙氨酸毛利率提升的核心驱动因素\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析丙氨酸产能利用率和毛利率是核心。丙氨酸产能利用率92%是核心指标，同比提升8个百分点反映产能爬坡和需求增长。丙氨酸毛利率48.3%是核心指标，同比提升2.7个百分点反映技术优化。生物发酵得率从92%提升至95%是技术突破。1,3-丙二醇产能爬坡至设计产能的65%是新产品进展。营收8.6亿元和同比增长32%是整体经营指标。海外客户收入占比56%是市场结构指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"丙氨酸产能利用率\",\n      \"metric_type\": \"operational\",\n      \"score\": 0.95,\n      \"reason\": \"92%的产能利用率是核心运营指标，同比提升8个百分点反映产能爬坡和需求增长\"\n    },\n    {\n      \"metric_name\": \"丙氨酸毛利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.92,\n      \"reason\": \"48.3%的毛利率是核心财务指标，同比提升2.7个百分点反映技术优化\"\n    },\n    {\n      \"metric_name\": \"生物发酵得率\",\n      \"metric_type\": \"operational\",\n      \"score\": 0.88,\n      \"reason\": \"从92%提升至95%是技术突破，直接影响丙氨酸毛利率\"\n    },\n    {\n      \"metric_name\": \"1,3-丙二醇产能爬坡\",\n      \"metric_type\": \"operational\",\n      \"score\": 0.85,\n      \"reason\": \"爬坡至设计产能的65%是新产品进展，反映合成生物学平台的商业化能力\"\n    },\n    {\n      \"metric_name\": \"海外客户收入占比\",\n      \"metric_type\": \"market\",\n      \"score\": 0.80,\n      \"reason\": \"约56%的海外客户收入占比是市场结构指标，反映国际化程度\"\n    }\n  ]\n}"
   },
   {
     "index": 11,
@@ -125,23 +125,23 @@
     "title": "地产行业月报",
     "valid_json": true,
     "gold_count": 1,
-    "pred_count": 2,
+    "pred_count": 3,
     "exact_hits": 1,
     "fuzzy_hits": 1,
-    "status": "🟡",
-    "pred_raw": "{\n  \"analysis\": \"本段同时包含business和financial两类指标。销售均价16,636元/平方米是business指标，因为它反映的是房地产销售的市场定价水平和产品定位，属于业务运营层面的市场表现指标，不直接出现在财务报表中；拿地销售比17%是financial指标，因为它衡量的是土地购置支出与销售金额的财务配比关系，是投资效率的财务度量，直接关联公司现金流量表和资产负债表。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"销售均价\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"16,636元/平方米反映房地产销售的市场定价水平和产品定位，属于业务运营层面的市场表现指标\"\n    },\n    {\n      \"metric_name\": \"拿地销售比\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"17%衡量土地购置支出与销售金额的财务配比关系，是投资效率的财务度量，直接关联现金流量表\"\n    }\n  ]\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析地产企业经营和投资策略。销售金额和面积是核心经营指标，均价反映产品结构。拿地销售比是投资纪律的核心指标，管理层强调投资纪律和现金流安全。土地储备和一二线占比反映资源质量。竣工交付率反映项目管理能力。段落重点分析拿地销售比和投资纪律，这是管理层强调的核心策略。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"拿地销售比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.95,\n      \"reason\": \"管理层强调投资纪律和现金流安全，拿地销售比约17%是核心投资策略指标\"\n    },\n    {\n      \"metric_name\": \"土地储备一二线占比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"78%的优质资源占比反映企业资源质量\"\n    },\n    {\n      \"metric_name\": \"竣工交付率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.8,\n      \"reason\": \"96%的交付率反映项目管理能力\"\n    }\n  ]\n}"
   },
   {
     "index": 12,
     "scenario": "boundary_many_numbers_one_core",
     "title": "保险行业分析",
-    "valid_json": true,
+    "valid_json": false,
     "gold_count": 1,
-    "pred_count": 2,
+    "pred_count": 0,
     "exact_hits": 0,
     "fuzzy_hits": 0,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"本段中'银保渠道新单保费增速45%'是渠道结构的亮点数据，但段落中没有给出银保渠道的规模占比、渠道收入结构、渠道成本差异等分析，仅增速本身不足以构成独立分析指标。'综合投资收益率5.1%'是投资端的综合回报，但段落中没有拆解固收、权益、另类等资产配置比例，也没有对比同业水平，缺乏深度分析。'净投资收益率3.8%'是投资端的净回报，但同样缺乏资产配置和同业对比的分析。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"寿险新业务价值增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.93,\n      \"reason\": \"24.6%的NBV增速是寿险业务质量的核心度量，人均产能增长31%和代理人微降2.3%是其驱动因素，13个月继续率93.7%是业务质量的保障\"\n    },\n    {\n      \"metric_name\": \"13个月保单继续率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.91,\n      \"reason\": \"93.7%的高继续率是寿险业务质量的核心保障指标，反映客户留存和产品竞争力，与退保率1.2%形成互补验证\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析寿险业务的NBV和代理人效率。寿险新业务价值（NBV）318亿元增长24.6%是核心指标，反映新单盈利能力。人均产能1.86万元增长31%是代理人效率的核心指标。代理人数量38.2万人下降2.3%是渠道规模的次要指标。13个月继续率93.7%是续保率的核心指标。退保率1.2%是退保风险的核心指标。银保新单增速45%是渠道增长的核心指标。综合投资收益率5.1%是资产端的核心指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"寿险新业务价值（NBV）\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"NBV是寿险业务的核心盈利指标，反映新单的长期盈利能力。24.6%的增速表明新单质量提升。\"\n    },\n    {\n      \"metric_name\": \"人均产能\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"1.86万元/人/月的产能增长31%是代理人效率的核心指标，反映渠道质量提升。\"\n    },\n    {\n      \"metric_name\": \"13个月保单继续率\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"93.7%的继续率是续保率的核心指标，反映客户留存能力。\"\n    },\n    {\n      \"metric_name\": \"退保率\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"1.2%的退保率是退保风险的核心指标，反映客户稳定性。\"\n    },\n    {\n      \"metric_name\": \"银保新单保费增速\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"45%的增速是银保渠道增长的核心指标，反映渠道拓展能力。\"\n    },\n    {\n      \"metric_name\": \"综合投资收益率\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"5.1%的收益率是资产端的核心指标，反映投资管理能力。\"\n    }\n  ]\n"
   },
   {
     "index": 13,
@@ -153,7 +153,7 @@
     "exact_hits": 0,
     "fuzzy_hits": 1,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"本段同时包含business和financial两类指标。工业机器人出货量增速35%是business指标，因为它衡量的是业务规模的扩张速度，不直接出现在财务报表中。新能源汽车电驱系统出货量62万套是business指标，因为它反映的是产品交付数量而非收入。电梯一体化控制器市占率28%是business指标，因为它衡量的是市场份额而非财务数据。研发人员6,200人是business指标，因为它反映的是人力资源配置而非财务科目。核心零部件全自研是business指标，因为它描述的是技术自主性而非财务数据。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"工业机器人出货量增速\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"35%远超行业平均12%且核心零部件全自研，反映国产替代的爆发力\"\n    },\n    {\n      \"metric_name\": \"新能源汽车电驱系统出货量\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"62万套配套理想/小鹏/广汽，反映新能源汽车核心部件的快速渗透\"\n    },\n    {\n      \"metric_name\": \"电梯一体化控制器市占率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.8,\n      \"reason\": \"28%提升3个百分点，反映在细分领域的持续渗透\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析汇川技术的工业机器人业务。核心是'国产工业机器人平台化布局最完整的企业之一'的行业地位分析。出货量增速35%远超行业平均12%是核心指标，反映国产替代的加速。核心零部件全自研是技术壁垒的体现。1.2万台出货量是业务体量的量化。控制器+伺服+减速器全自研是技术自主化的关键。段落重点分析工业机器人业务的国产替代潜力和平台化布局。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"工业机器人出货量增速\",\n      \"metric_type\": \"business\",\n      \"score\": 0.95,\n      \"reason\": \"35%增速远超行业平均12%是国产替代加速的核心指标\"\n    },\n    {\n      \"metric_name\": \"核心零部件全自研\",\n      \"metric_type\": \"technology\",\n      \"score\": 0.92,\n      \"reason\": \"控制器+伺服+减速器全自研是技术壁垒的核心体现\"\n    },\n    {\n      \"metric_name\": \"国产工业机器人平台化布局\",\n      \"metric_type\": \"business\",\n      \"score\": 0.88,\n      \"reason\": \"平台化布局最完整是行业地位的核心分析维度\"\n    }\n  ]\n}"
   },
   {
     "index": 14,
@@ -161,11 +161,11 @@
     "title": "连锁餐饮分析",
     "valid_json": true,
     "gold_count": 2,
-    "pred_count": 2,
+    "pred_count": 3,
     "exact_hits": 2,
     "fuzzy_hits": 2,
-    "status": "✅",
-    "pred_raw": "{\n  \"analysis\": \"本段同时包含business和financial两类指标。翻台率是business指标因为它衡量的是餐厅运营效率和顾客流量周转速度，属于经营层面的运营指标，反映餐厅座位的使用效率和顾客消费频率，不直接出现在财务报表中。餐厅层面经营利润率是financial指标因为它衡量的是餐厅经营的盈利水平，是财务报表中的经营利润与收入的比率，反映餐厅的盈利能力。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"翻台率\",\n      \"metric_type\": \"business\",\n      \"score\": 0.93,\n      \"reason\": \"business指标，反映餐厅座位周转效率和顾客流量，4.2次/天回升0.5次是运营效率改善的核心度量\"\n    },\n    {\n      \"metric_name\": \"餐厅层面经营利润率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.92,\n      \"reason\": \"financial指标，反映餐厅经营的盈利水平，17.8%高于行业平均12%是盈利质量的核心度量\"\n    }\n  ]\n}"
+    "status": "🟡",
+    "pred_raw": "{\n  \"analysis\": \"本段分析海底捞的经营质量。翻台率4.2次/天是核心经营指标，反映门店运营效率。同店销售增长8.3%是收入增长的核心指标。人均消费98元是客单价指标。餐厅层面经营利润率17.8%是盈利质量的核心指标。新开52家和关闭18家是门店扩张策略的补充信息。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"翻台率\",\n      \"metric_type\": \"经营质量\",\n      \"score\": 0.95,\n      \"reason\": \"4.2次/天是核心经营效率指标，反映门店运营质量\"\n    },\n    {\n      \"metric_name\": \"同店销售增长率\",\n      \"metric_type\": \"收入增长\",\n      \"score\": 0.9,\n      \"reason\": \"8.3%是收入增长的核心指标\"\n    },\n    {\n      \"metric_name\": \"餐厅层面经营利润率\",\n      \"metric_type\": \"盈利质量\",\n      \"score\": 0.9,\n      \"reason\": \"17.8%是盈利质量的核心指标\"\n    }\n  ]\n}"
   },
   {
     "index": 15,
@@ -173,11 +173,11 @@
     "title": "物业管理行业",
     "valid_json": true,
     "gold_count": 2,
-    "pred_count": 2,
-    "exact_hits": 1,
-    "fuzzy_hits": 1,
+    "pred_count": 7,
+    "exact_hits": 2,
+    "fuzzy_hits": 2,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"本段同时包含business和financial两类指标。在管面积是业务运营指标，反映物业管理规模，属于business类别；净利率是财务盈利指标，反映公司盈利能力，属于financial类别。段落同时分析了业务扩张和财务盈利。business指标是运营层面的规模度量，financial指标是财务报表的盈利度量。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"在管面积\",\n      \"metric_type\": \"business\",\n      \"score\": 0.93,\n      \"reason\": \"9.8亿平方米和12%增速是物业管理规模的核心度量，第三方占比58%的提升反映去关联化进展\"\n    },\n    {\n      \"metric_name\": \"净利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.91,\n      \"reason\": \"8.6%和-0.9pct的下降是盈利质量的核心财务指标，关联方应收减值是影响因素\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析物业管理公司的核心经营指标。在管面积是物业公司的核心规模指标，第三方占比提升反映外拓能力。物业费收缴率是物业公司的核心运营指标，反映业主履约能力。基础物管收入增速是物业公司的核心收入指标，社区增值服务增速是物业公司的核心增长指标。增值服务占比提升反映物业公司的核心盈利模式转型。净利率是物业公司的核心盈利指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"在管面积\",\n      \"metric_type\": \"scale\",\n      \"score\": 1.0,\n      \"reason\": \"9.8亿平方米是物业公司的核心规模指标\"\n    },\n    {\n      \"metric_name\": \"第三方项目占比\",\n      \"metric_type\": \"scale\",\n      \"score\": 0.9,\n      \"reason\": \"58%反映物业公司的外拓能力\"\n    },\n    {\n      \"metric_name\": \"物业费收缴率\",\n      \"metric_type\": \"operation\",\n      \"score\": 1.0,\n      \"reason\": \"92.3%是物业公司的核心运营指标\"\n    },\n    {\n      \"metric_name\": \"基础物管收入增速\",\n      \"metric_type\": \"revenue\",\n      \"score\": 1.0,\n      \"reason\": \"14%是物业公司的核心收入指标\"\n    },\n    {\n      \"metric_name\": \"社区增值服务收入增速\",\n      \"metric_type\": \"revenue\",\n      \"score\": 1.0,\n      \"reason\": \"26%是物业公司的核心增长指标\"\n    },\n    {\n      \"metric_name\": \"增值服务占比\",\n      \"metric_type\": \"revenue\",\n      \"score\": 0.9,\n      \"reason\": \"21%反映物业公司的盈利模式转型\"\n    },\n    {\n      \"metric_name\": \"净利率\",\n      \"metric_type\": \"profit\",\n      \"score\": 1.0,\n      \"reason\": \"8.6%是物业公司的核心盈利指标\"\n    }\n  ]\n}"
   },
   {
     "index": 16,
@@ -185,11 +185,11 @@
     "title": "游戏行业点评",
     "valid_json": true,
     "gold_count": 2,
-    "pred_count": 3,
+    "pred_count": 6,
     "exact_hits": 0,
-    "fuzzy_hits": 1,
+    "fuzzy_hits": 2,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"段落分析游戏公司的全球化收入和新品爆发。ARPPU 158元/月是核心度量——每付费用户的收入水平直接决定游戏公司的盈利质量。海外收入占比68%反映全球化程度。全球MAU 1.35亿是用户规模。递延收入42亿元是预售充值的前瞻信号。新品《星铁》首年120亿元是爆款验证。营业利润率38%是盈利水平。ARPPU是游戏商业模式的核心度量。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"ARPPU\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"158元/月是游戏公司的核心度量，直接决定盈利质量\"\n    },\n    {\n      \"metric_name\": \"海外收入占比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.85,\n      \"reason\": \"68%反映全球化程度，海外收入占比越高越有抗风险能力\"\n    },\n    {\n      \"metric_name\": \"递延收入余额\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.8,\n      \"reason\": \"42亿元反映预售充值的旺盛需求，是收入确认的前瞻信号\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析游戏公司的核心财务和运营指标。MAU是用户规模指标，ARPPU是收入质量指标，海外收入占比是市场结构指标，递延收入是预售收入确认指标，新品流水是新品表现指标，营业利润率是盈利能力指标。MAU和ARPPU是核心运营指标，海外收入占比和新品流水是市场结构和产品表现指标，递延收入和营业利润率是财务指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"全球月活跃用户（MAU）\",\n      \"metric_type\": \"运营指标\",\n      \"score\": 0.95,\n      \"reason\": \"1.35亿的MAU是用户规模的核心指标，反映游戏的用户基础和市场渗透\"\n    },\n    {\n      \"metric_name\": \"ARPPU（每付费用户平均收入）\",\n      \"metric_type\": \"运营指标\",\n      \"score\": 0.92,\n      \"reason\": \"158元/月的ARPPU是收入质量的核心指标，反映付费用户的消费能力和游戏的变现能力\"\n    },\n    {\n      \"metric_name\": \"海外收入占比\",\n      \"metric_type\": \"市场结构指标\",\n      \"score\": 0.88,\n      \"reason\": \"68%的海外收入占比反映游戏的国际化程度和海外市场的渗透能力\"\n    },\n    {\n      \"metric_name\": \"递延收入余额\",\n      \"metric_type\": \"财务指标\",\n      \"score\": 0.85,\n      \"reason\": \"42亿元的递延收入余额反映预售充值的旺盛需求和未来的收入确认潜力\"\n    },\n    {\n      \"metric_name\": \"新品流水\",\n      \"metric_type\": \"产品表现指标\",\n      \"score\": 0.82,\n      \"reason\": \"《星铁》首年流水超过120亿元反映新品的市场表现和用户接受度\"\n    },\n    {\n      \"metric_name\": \"营业利润率\",\n      \"metric_type\": \"盈利能力指标\",\n      \"score\": 0.80,\n      \"reason\": \"38%的营业利润率反映游戏公司的盈利能力\"\n    }\n  ]\n}"
   },
   {
     "index": 17,
@@ -197,11 +197,11 @@
     "title": "宏观经济综述",
     "valid_json": true,
     "gold_count": 0,
-    "pred_count": 1,
+    "pred_count": 3,
     "exact_hits": 0,
     "fuzzy_hits": 0,
-    "status": "🟡",
-    "pred_raw": "{\n  \"analysis\": \"本段是宏观经济的综合描述段落。GDP增速5.2%是段落核心——它是最宏观的经济总量指标，段落所有其他指标都是对GDP的分解和补充。CPI 0.8%和PPI -1.2%是通胀指标。出口增速6.2%是外需指标。基建投资7.1%和制造业投资9.8%是投资结构的细分。社融增速9.3%是金融支持。段落没有对任何指标进行深度分析，只是罗列了数据。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"GDP增速\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"5.2%是段落核心宏观总量指标\"\n    }\n  ]\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析宏观经济的总量和结构分化。GDP增速略高于预期是核心指标，但段落重点在结构分化——基建投资7.1%和制造业投资9.8%的增速分化是核心矛盾。出口6.2%和贸易顺差4,280亿美元反映外需韧性。CPI-PPI剪刀差0.8%和-1.2%反映企业盈利压力。M2-社融增速差8.1%和9.3%反映信用扩张节奏。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"基建投资增速\",\n      \"metric_type\": \"economic\",\n      \"score\": 0.95,\n      \"reason\": \"7.1%的增速是政策发力的直接体现\"\n    },\n    {\n      \"metric_name\": \"制造业投资增速\",\n      \"metric_type\": \"economic\",\n      \"score\": 0.92,\n      \"reason\": \"9.8%的增速反映产业升级动能\"\n    },\n    {\n      \"metric_name\": \"CPI-PPI剪刀差\",\n      \"metric_type\": \"economic\",\n      \"score\": 0.88,\n      \"reason\": \"0.8%和-1.2%的剪刀差反映企业盈利压力\"\n    }\n  ]\n}"
   },
   {
     "index": 18,
@@ -209,11 +209,11 @@
     "title": "行业政策梳理",
     "valid_json": true,
     "gold_count": 0,
-    "pred_count": 0,
+    "pred_count": 2,
     "exact_hits": 0,
     "fuzzy_hits": 0,
-    "status": "✅",
-    "pred_raw": "{\n  \"analysis\": \"本段是行业政策分析，没有上市公司。'研发费用加计扣除比例从100%提升至120%'是国家对AI企业的税收优惠，'算力投资超过1,500亿元'是地方政府规划，'安全评估备案'是监管要求——这些都不是上市公司的经营指标。段落内容全部是政策层面的宏观信息，没有可提取的上市公司核心指标。\",\n  \"metrics\": []\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析了人工智能产业的政策环境，重点在于算力基础设施和研发费用加计扣除比例。算力投资规模是地方政府规划的核心量化指标，反映产业基础设施的投入力度。研发费用加计扣除比例提升是税收优惠的核心政策，直接影响企业研发成本。安全评估备案是监管要求，但未量化。地方政府规划的1,500亿元算力投资是产业发展的核心资金指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"算力投资规模\",\n      \"metric_type\": \"policy\",\n      \"score\": 0.95,\n      \"reason\": \"地方政府合计规划算力投资超过1,500亿元是产业基础设施投入的核心量化指标\"\n    },\n    {\n      \"metric_name\": \"研发费用加计扣除比例\",\n      \"metric_type\": \"policy\",\n      \"score\": 0.92,\n      \"reason\": \"从100%提升至120%是税收优惠的核心政策，直接影响企业研发成本\"\n    }\n  ]\n}"
   },
   {
     "index": 19,
@@ -221,11 +221,11 @@
     "title": "新零售业务跟踪",
     "valid_json": true,
     "gold_count": 2,
-    "pred_count": 3,
+    "pred_count": 6,
     "exact_hits": 1,
     "fuzzy_hits": 1,
     "status": "❌",
-    "pred_raw": "{\n  \"analysis\": \"段落分析海外业务的高增长和高毛利。海外门店数3,200家增长38%是段落核心——海外扩张是名创优品的第二增长曲线。海外单店月均收入28万元增长12%是单店经营质量的度量。海外毛利率42.5%显著高于国内32.8%是定价权差异的核心数据。EBITDA利润率18.3%提升2.1个百分点是整体盈利改善。国内门店4,100家增长8%是基础业务。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"海外门店数\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"3,200家增长38%是海外扩张的核心度量\"\n    },\n    {\n      \"metric_name\": \"海外毛利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.9,\n      \"reason\": \"42.5%显著高于国内32.8%是定价权差异的核心数据\"\n    },\n    {\n      \"metric_name\": \"EBITDA利润率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.85,\n      \"reason\": \"18.3%提升2.1个百分点是整体盈利改善\"\n    }\n  ]\n}"
+    "pred_raw": "{\n  \"analysis\": \"段落分析海外业务增长和国内业务增长。海外门店数突破3,200家增长38%是海外业务扩张的核心指标。海外单店月均收入28万元增长12%是海外业务盈利能力的核心指标。海外毛利率42.5%显著高于国内32.8%是海外业务盈利能力的核心指标。海外IP联名产品占比更高是海外业务盈利能力的核心指标。海外业务整体EBITDA利润率18.3%是海外业务盈利能力的核心指标。国内门店数约4,100家增长8%是国内业务扩张的核心指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"海外门店数\",\n      \"metric_type\": \"business\",\n      \"score\": 0.98,\n      \"reason\": \"海外门店数突破3,200家增长38%是海外业务扩张的核心指标\"\n    },\n    {\n      \"metric_name\": \"海外单店月均收入\",\n      \"metric_type\": \"business\",\n      \"score\": 0.97,\n      \"reason\": \"海外单店月均收入28万元增长12%是海外业务盈利能力的核心指标\"\n    },\n    {\n      \"metric_name\": \"海外毛利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.96,\n      \"reason\": \"海外毛利率42.5%显著高于国内32.8%是海外业务盈利能力的核心指标\"\n    },\n    {\n      \"metric_name\": \"海外IP联名产品占比\",\n      \"metric_type\": \"business\",\n      \"score\": 0.95,\n      \"reason\": \"海外IP联名产品占比更高是海外业务盈利能力的核心指标\"\n    },\n    {\n      \"metric_name\": \"海外业务整体EBITDA利润率\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.94,\n      \"reason\": \"海外业务整体EBITDA利润率18.3%是海外业务盈利能力的核心指标\"\n    },\n    {\n      \"metric_name\": \"国内门店数\",\n      \"metric_type\": \"business\",\n      \"score\": 0.93,\n      \"reason\": \"国内门店数约4,100家增长8%是国内业务扩张的核心指标\"\n    }\n  ]\n}"
   },
   {
     "index": 20,
@@ -233,10 +233,10 @@
     "title": "工业软件行业",
     "valid_json": true,
     "gold_count": 2,
-    "pred_count": 2,
+    "pred_count": 4,
     "exact_hits": 1,
     "fuzzy_hits": 2,
-    "status": "✅",
-    "pred_raw": "{\n  \"analysis\": \"本段核心分析对象是订阅转型进度。订阅收入占比从48%提升至62%是段落核心——订阅模式是工业软件行业从一次性授权向持续服务转型的关键方向。续费率89%高于行业平均82%是订阅模式质量的验证。合同负债增长67%是订阅模式带来的收入确认后移。经调整净利率下降3.2个百分点是订阅转型期的正常现象。收入增速8.3%放缓是订阅模式收入确认节奏变化。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"订阅收入占比\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"从48%提升至62%是订阅转型进度的核心度量\"\n    },\n    {\n      \"metric_name\": \"合同负债增速\",\n      \"metric_type\": \"financial\",\n      \"score\": 0.85,\n      \"reason\": \"增长67%反映订阅模式带来的收入确认后移和未来收入确定性\"\n    }\n  ]\n}"
+    "status": "❌",
+    "pred_raw": "{\n  \"analysis\": \"段落分析订阅转型对中望软件的财务影响。订阅收入占比提升14个百分点至62%是订阅转型进度的核心指标，反映转型速度。订阅客户续费率89%高于行业平均82%是订阅模式质量的核心指标。合同负债余额5.8亿元同比增长67%是订阅模式下未来收入的高确定性指标。经调整净利率12.5%同比下降3.2个百分点是订阅转型期的利润率承压指标。\",\n  \"metrics\": [\n    {\n      \"metric_name\": \"订阅收入占比\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"订阅收入占比提升14个百分点至62%是订阅转型进度的核心指标\"\n    },\n    {\n      \"metric_name\": \"订阅客户续费率\",\n      \"metric_type\": \"business\",\n      \"score\": 1.0,\n      \"reason\": \"订阅客户续费率89%高于行业平均82%是订阅模式质量的核心指标\"\n    },\n    {\n      \"metric_name\": \"合同负债余额\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"合同负债余额5.8亿元同比增长67%是订阅模式下未来收入的高确定性指标\"\n    },\n    {\n      \"metric_name\": \"经调整净利率\",\n      \"metric_type\": \"financial\",\n      \"score\": 1.0,\n      \"reason\": \"经调整净利率12.5%同比下降3.2个百分点是订阅转型期的利润率承压指标\"\n    }\n  ]\n}"
   }
 ]
