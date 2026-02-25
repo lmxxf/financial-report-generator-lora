@@ -115,9 +115,17 @@ python train_lora.py train --model /workspace/models/Qwen3-14B --data data/ --ep
 
 上面参数表里的每个数字背后都有工程考量。这里解释"为什么这么设"。
 
+### Batch Size 的选择
+
+有效 batch size = micro batch × gradient accumulation = 2 × 8 = 16。为什么是 16 而不是更大？
+
+128GB 内存理论上 micro batch 能开到 8 甚至 16，有效 batch 到 64-128。但小数据集不适合大 batch：590 条数据 / batch=16 ≈ 每 epoch 37 次权重更新，5 epochs = 185 次更新。如果 batch=128，每 epoch 才更新 ~5 次，5 epochs = 25 次——模型还没学会就训完了。
+
+另外 batch 翻倍 lr 也要跟着翻倍（线性缩放规则），否则等于学得更慢。小数据集用小 batch 噪声更大，反而帮助泛化、不容易过拟合。**590 条数据，batch=16 是合适的。**
+
 ### Gradient Accumulation（梯度累积）
 
-batch size 写的是 `2 × 8 = 16`，不是真的一次喂 16 条——14B 模型显存放不下。实际一次只喂 2 条（micro batch），算 8 次梯度攒起来，再一次性更新权重。数学上等价于 batch=16，但显存只占 batch=2 的量。**穷人的大 batch。**
+那为什么不直接设 micro batch=16？因为 14B 模型显存放不下。实际一次只喂 2 条（micro batch），算 8 次梯度攒起来，再一次性更新权重。数学上等价于 batch=16，但显存只占 batch=2 的量。**穷人的大 batch。**
 
 ### Warmup（预热）
 
