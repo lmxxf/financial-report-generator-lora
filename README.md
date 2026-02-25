@@ -181,6 +181,31 @@ python train_lora.py infer \
   --text "公司毛利率同比提升2.3个百分点至35.8%，受益于产品结构优化和原材料成本下降。"
 ```
 
+### 推理性能说明
+
+当前推理用的是原生 `transformers` 的 `model.generate()`——最朴素的逐 token 自回归生成，没有任何优化。50 条测试在 DGX Spark 上跑约 2 小时，跑评测够用但不适合上线部署。
+
+如果需要生产环境部署，推荐替换推理框架：
+
+| 方案 | 加速比 | 说明 |
+|---|---|---|
+| **vLLM** | 5-10x | 推荐。原生支持 LoRA 热加载，推理代码需重写但改动不大 |
+| **llama.cpp / GGUF** | 3-5x | 需要先把 LoRA 合并进基座再量化导出，适合纯 CPU 部署 |
+
+vLLM 部署示例（需额外安装 `pip install vllm`）：
+
+```bash
+# 启动 vLLM 服务（支持 LoRA）
+python -m vllm.entrypoints.openai.api_server \
+  --model /workspace/models/Qwen3-14B \
+  --enable-lora \
+  --lora-modules financial-lora=output/final \
+  --quantization bitsandbytes \
+  --max-model-len 2048
+```
+
+然后用标准 OpenAI API 格式调用即可，吞吐量提升一个数量级。
+
 ## 评估
 
 ```bash
