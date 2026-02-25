@@ -111,6 +111,57 @@ python train_lora.py train --model /workspace/models/Qwen3-14B --data data/ --ep
 
 训练好的 LoRA 权重：[lmxxf/financial-report-lora-qwen3-14b](https://huggingface.co/lmxxf/financial-report-lora-qwen3-14b)
 
+## 工程细节基础教学
+
+上面参数表里的每个数字背后都有工程考量。这里解释"为什么这么设"。
+
+### Gradient Accumulation（梯度累积）
+
+batch size 写的是 `2 × 8 = 16`，不是真的一次喂 16 条——14B 模型显存放不下。实际一次只喂 2 条（micro batch），算 8 次梯度攒起来，再一次性更新权重。数学上等价于 batch=16，但显存只占 batch=2 的量。**穷人的大 batch。**
+
+### Warmup（预热）
+
+训练刚开始时 learning rate 从 0 慢慢涨到目标值（设了总步数的 5%）。因为 LoRA 权重刚初始化时接近随机，step 太大会把模型带沟里。就像冷车启动先怠速热一下。
+
+### Cosine Decay（余弦衰减）
+
+lr 涨到目标值后不是一直保持，而是按余弦曲线慢慢降到接近 0。开头学大方向，后期微调细节。配合 warmup 形成完整的 lr 曲线：`0 → 慢涨 → 峰值 → 慢降 → ~0`。
+
+### Gradient Checkpointing（梯度检查点）
+
+正常训练要存每一层的中间计算结果，反向传播时用。14B 模型几十层，中间结果巨大。开了 checkpointing 后只存几个关键层的结果，其他的需要时重新算。**用计算时间换显存**——DGX Spark 上能跑 14B QLoRA 就靠这个。
+
+### Paged AdamW 8bit（分页优化器）
+
+Adam 优化器要给每个参数额外存两个状态（一阶动量 m 和二阶动量 v），14B 模型这两组状态本身就占几十 GB。`8bit` 把这些状态从 fp32 压缩到 int8，省 4 倍显存。`paged` 是说 GPU 显存不够时自动把一部分挪到 CPU 内存，类似虚拟内存。
+
+### LoRA Target Modules（目标模块）
+
+LoRA 打了 7 个模块：`q_proj / k_proj / v_proj / o_proj`（注意力层）+ `gate_proj / up_proj / down_proj`（MLP 层）。
+
+- **注意力层**（q/k/v/o）控制"看哪里"——模型如何分配注意力给输入的不同部分
+- **MLP 层**（gate/up/down）控制"想什么"——模型看到信息后如何加工处理
+
+只打注意力层 = 只改"看的方式"，加上 MLP = 连"想的方式"也改。打得越多效果越强，但也越容易过拟合。7 个全打是激进配置，适合数据量足够（500+）的场景。
+
+### LoRA r 和 alpha 的关系
+
+LoRA 的实际影响力 = `alpha / r`。r=16 是低秩矩阵的维度（越大表达能力越强），alpha=32 是缩放系数。`32/16 = 2` 是标准配比。
+
+v3→v4 实验中把 alpha 从 32 降到 16（影响力从 2 降到 1），目的是让 32B 基座保留更多自身能力。结果：确实有改善但不够。这说明 LoRA 的"力度"需要和基座模型规模匹配。
+
+### Epochs 和 Shuffle
+
+每个 epoch 模型把全部训练数据"看"一遍。5 epochs = 看 5 遍。更多 epochs 能学得更深，但过多会过拟合（对训练数据背得滚瓜烂熟，对新数据反而不行）。
+
+每个 epoch 开始前，DataLoader 会自动 **shuffle**（随机打乱）数据顺序。所以"先看 A 类再看 B 类"这种顺序偏差不存在——每轮看到的顺序都不一样。
+
+### 8bit 量化加载（QLoRA 核心）
+
+14B 模型 bf16 全精度需要 ~28GB，8bit 量化加载后 ~15GB。量化是**加载时逐层做的**——读一层 bf16 权重，立刻压成 int8 放进显存，不需要先把整个 bf16 模型展开。所以磁盘上文件是 28GB（bf16），但内存峰值远小于 28GB。
+
+量化的代价是精度损失，但 LoRA 的可训练参数（64M）仍然是 bf16 全精度——只有被冻结的基座模型被量化了。这就是 QLoRA 的精髓：**基座省显存，LoRA 保精度**。
+
 ## 推理
 
 ```bash
