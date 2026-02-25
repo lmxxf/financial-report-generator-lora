@@ -51,7 +51,16 @@
 DGX Spark (128GB) + docker 容器（nvcr.io/nvidia/pytorch:25.11-py3）。
 
 ```bash
-# 创建容器（映射项目和模型目录）
+# 进入容器（日常使用，记住这一条就够了）
+docker start lora-train && docker exec -it lora-train bash
+
+# 进去后
+cd /workspace/lora
+```
+
+首次创建容器（只需一次）：
+
+```bash
 docker run -it --gpus all --name lora-train \
   -v /home/lmxxf/work/financial-report-generator-lora:/workspace/lora \
   -v /home/lmxxf/work/models:/workspace/models \
