@@ -59,6 +59,31 @@ docker start lora-train && docker exec -it lora-train bash
 cd /workspace/lora
 ```
 
+容器故障排查：
+
+```bash
+# 如果训练报错 "bf16/gpu not supported"，说明 GPU 没挂上
+# 第一步：退出容器，重启试试
+exit
+docker restart lora-train && docker exec -it lora-train bash
+
+# 第二步：如果重启还不行，删掉容器重建（数据不会丢，都是 -v 挂载的）
+exit
+docker stop lora-train && docker rm lora-train
+docker run -it --gpus all --name lora-train \
+  -v /home/lmxxf/work/financial-report-generator-lora:/workspace/lora \
+  -v /home/lmxxf/work/models:/workspace/models \
+  nvcr.io/nvidia/pytorch:25.11-py3 bash
+# 重建后需要重新安装依赖（唯一丢的就是 pip 包）
+pip install peft bitsandbytes trl
+
+# 第三步：如果重建也不行，重启宿主机
+
+# 进去后验证 GPU 是否正常
+python3 -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+# 应该输出：True NVIDIA GB10
+```
+
 首次创建容器（只需一次）：
 
 ```bash
