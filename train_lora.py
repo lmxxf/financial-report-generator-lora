@@ -32,7 +32,7 @@ from transformers import (
     AutoTokenizer,
     BitsAndBytesConfig,
 )
-from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training, PeftModel
 from trl import SFTTrainer, SFTConfig
 
 
@@ -169,6 +169,7 @@ def train(
     max_seq_len: int = 2048,
     lora_r: int = 16,
     lora_alpha: int = 32,
+    resume_from: str = None,
 ):
     """QLoRA 训练主流程"""
 
@@ -178,7 +179,12 @@ def train(
 
     # 2. 加载模型
     model, tokenizer = load_model_and_tokenizer(model_path)
-    model = apply_lora(model, r=lora_r, alpha=lora_alpha)
+    if resume_from:
+        print(f"从已有 LoRA 继续训练: {resume_from}")
+        model = PeftModel.from_pretrained(model, resume_from, is_trainable=True)
+        model.print_trainable_parameters()
+    else:
+        model = apply_lora(model, r=lora_r, alpha=lora_alpha)
 
     # 3. 训练参数
     training_args = SFTConfig(
@@ -300,6 +306,7 @@ def main():
     train_parser.add_argument("--max-seq-len", type=int, default=2048)
     train_parser.add_argument("--lora-r", type=int, default=16)
     train_parser.add_argument("--lora-alpha", type=int, default=32)
+    train_parser.add_argument("--resume", default=None, help="从已有 LoRA checkpoint 继续训练")
 
     # infer 子命令
     infer_parser = sub.add_parser("infer", help="推理测试")
@@ -323,6 +330,7 @@ def main():
             max_seq_len=args.max_seq_len,
             lora_r=args.lora_r,
             lora_alpha=args.lora_alpha,
+            resume_from=args.resume,
         )
     elif args.command == "infer":
         inference(
